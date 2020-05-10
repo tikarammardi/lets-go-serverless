@@ -1,0 +1,21 @@
+service: demoproj
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  registerEmployee:
+    handler: handler.registerEmployee
+    events:
+      - http:
+          path: registerEmployee
+          method: post
+  getEmployeeData:
+    handler: handler.getEmployeeData
+    events:
+      - http:
+          path: getEmployee
+          method: get
+plugins:
+  - serverless-offline
